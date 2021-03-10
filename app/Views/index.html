@@ -1,0 +1,36 @@
+<?php include "common/header.html" ?>
+
+<div class="container">
+    <div class="m-5 text-center">
+        <h3>Black Hole !</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md">
+            <h5 class="font-monospace lh-lg" id="w"></h5>
+            <p id="btn"></p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+
+</div>
+
+
+<?php include "common/footer.html" ?>
+<script type="application/javascript">
+    var index = 0;
+    var word = "Black Hole Is A Game. If You Clear All The Stage, A Big Prize Will Belongs To You！  Are You Ready To Start ?";
+    function type(){
+        document.getElementById("w").innerText = word.substring(0,index++);
+        console.log(index)
+        if(index == 120){
+            document.getElementById("btn").innerHTML = "<a class=\"btn btn-dark mb-3\" href=\"/stage\">Start</a>"
+            clearInterval(st1)
+        }
+    }
+    st1 = setInterval(type, 150);
+
+
+</script>

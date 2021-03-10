@@ -1,0 +1,67 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+192.168.126.100	webim.local
+192.168.126.100	blog.local
+192.168.126.100	admin.blog.local
+192.168.126.100	tool.local
+192.168.126.100 study.local
+192.168.126.100 admin.study.local
+
+192.168.126.100	wiki.local
+192.168.126.100	coder.local
+192.168.126.100	black.local
+192.168.126.100	box3.local
+192.168.126.100	getcoder.local
+192.168.126.100	coder.iotsec.360.cn
+192.168.126.100	qa9.ca.api.iotsec.360.cn
+
+192.168.126.101	api.local
+
+
+
+10.16.137.43	wk.ca_admin.iot.msic.360.cn
+10.16.137.43	petstore.wk.ca_admin.iot.msic.360.cn
+10.16.137.43	wk.ca.iot.msic.360.cn
+10.16.137.43	petstore.wk.ca.api.iot.msic.360.cn
+#10.173.229.243 	qa9.ca.api.iotsec.360.cn
+10.16.137.43	dev.dnsadmin.iotsec.360.cn
+10.173.229.240	qa8.dnsadmin.iotsec.360.cn
+
+10.209.213.218  pre.dnsadmin.iotsec.qihoo.net
+#10.209.213.218	dnsadmin.iotsec.qihoo.net
+
+
+#10.209.243.202	cd.msic.qihoo.net
+10.209.243.170	cd.msic.qihoo.net
+
+
+#112.126.83.151	blog.getcoder.cn
+117.51.151.230         api.getcoder.cn
+
+
+#0.0.0.0 account.jetbrains.com
+#0.0.0.0 www.jetbrains.com
+
+119.36.225.235	tmall.com
+
+
+10.16.133.119  op.car.360.cn 127.0.0.1       activate.navicat.com

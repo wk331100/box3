@@ -1,0 +1,54 @@
+<?php include "common/header.html" ?>
+
+<div class="container">
+    <div class="m-2 text-center">
+        <h3><span class="badge bg-success fs-6">Box3.cc</span><span class="fs-4 mx-2">工具箱</span><small class="fs-6 text-secondary">(最好用的开发工具箱)</small></h3>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md">
+            <ol class="list clearfix">
+                <?php if(!$in_list) { ?>
+                <li class="active"><?=$name?></li>
+                <?php } ?>
+
+                <?php
+                if(!empty($list)) {
+                    foreach($list as $item) {
+                        if ($item->title == $name) {
+                ?>
+                <li class="active"><?=$item->title?></li>
+                <?php } else { ?>
+                <li><a title="<?=$item->title?>" href="<?=$item->url?>" ><?=$item->title?></a></li>
+                <?php } } } ?>
+
+                <li><a title="全部工具" href="/tools" >全部工具</a></li>
+
+            </ol>
+            <h5 class="fs-7">请输入要进行 <?=$name?> 编码或解码的字符:</h5>
+            <textarea name="text" id="text" class="form-control text mt-3" cols="80" rows="6" placeholder=""></textarea>
+            <input type="hidden" id="target" value="/execute?tool=<?=$name?>">
+            <div class=" mt-3">
+                <button id="encode" class="btn btn-primary btn-sm">编码 (Encode)</button>
+                <button id="decode" class="btn btn-outline-secondary btn-sm">解码 (Decode)</button>
+                <button id="exchange" class="btn btn-outline-secondary btn-sm">↕ 交换</button>
+                <button id="clear" class="btn btn-outline-secondary btn-sm">清空</button>
+                <span class="fs-7 ms-1 text-secondary">(编码快捷键：<small><kbd>Ctrl</kbd> + <kbd>Enter</kbd></small> )</span>
+            </div>
+            <h5 class="fs-7  mt-3"><?=$name?> 编码或解码的结果：<span class="float-end fw-bold"><label><input type="checkbox" id="select_all" > 结果自动全选</label></span></h5>
+            <textarea name="result" id="result" class="form-control text  mt-3" cols="80" rows="6" placeholder=""></textarea>
+            <div id="alert" class="alert alert-info mt-3 fs-7">请在上方第一个文本框中输入要编码/解码的字符。</div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-md text-center">
+            <hr>
+            <h5><span class="fs-8 text-secondary">Box3.cc</span><span class="fs-8 mx-2 text-secondary">&copy;2021 Powered By Kunkka Wu</span></h5>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<?php include "common/footer.html" ?>
