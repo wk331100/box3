@@ -14,7 +14,7 @@ use System\Response;
 class IndexController extends Controller {
 
     public function index(){
-        return Response::html("index");
+        Redirect::to('/base64');
     }
 
     public function base64(){
