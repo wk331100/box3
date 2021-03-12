@@ -20,7 +20,9 @@ class ExecController extends Controller {
             $tool = $request->input('tool');
             $type = $request->input('type');
             $data = [
-                "text" => $request->input('text')
+                "text" => $request->input('text'),
+                "char" => $request->input('char'),
+                "len" => $request->input('len')
             ];
             $result = ExecService::Run($tool, $type, $data);
             return Response::success($result);
@@ -28,6 +30,7 @@ class ExecController extends Controller {
             return Response::error($e);
         }
     }
+
 
 
 

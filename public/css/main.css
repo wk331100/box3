@@ -18,6 +18,20 @@ a {
     color: #337ab7;
     text-decoration: none;
 }
+.form-sm{
+    border-radius: .25rem;
+    border: 1px solid #cccccc;
+}
+
+.badge{
+    font-weight: 500;
+}
+
+.box {
+    border-radius: .25rem;
+    border: 1px solid #e5e5e5;
+}
+
 .btn-primary{
     color: #fff;
     background-color: #337ab7;
@@ -26,12 +40,29 @@ a {
 
 .btn-primary:hover{
     background-color: #2e6da4;
+    border-color: #2e6da4;
+}
+
+.btn-outline-primary {
+    color: #2e6da4;
+    border-color: #2e6da4;
+}
+
+.btn-outline-primary:hover{
+    background-color: #2e6da4;
+    border-color: #2e6da4;
 }
 
 .alert-info{
     color: #31708f;
     background-color: #d9edf7;
     border-color: #bce8f1;
+}
+
+.btn-group-ss>.btn, .btn-ss {
+    padding: .15rem .3rem;
+    font-size: .512rem;
+    border-radius: .2rem;
 }
 
 .list{
@@ -43,3 +74,14 @@ a {
     font-size: 14px;
 }
 .list li{float: left; margin-right: 1em;}
+
+.vlist{
+    list-style: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.vlist li {
+    margin: 1em 0em 1.5em;
+}

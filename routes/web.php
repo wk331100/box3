@@ -14,6 +14,8 @@ use System\Route;
 
 Route::get('/', 'IndexController@index');
 Route::get('/base64', 'IndexController@base64');
+Route::get('/randPwd', 'IndexController@randPwd');
+
 Route::post('/execute', 'ExecController@index');
 
 

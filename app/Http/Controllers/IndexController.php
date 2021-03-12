@@ -19,14 +19,28 @@ class IndexController extends Controller {
 
     public function base64(){
         $name = 'Base64';
+        $desc = 'Base64';
         $top = ToolsModel::getInstance()->getTopList();
         $data = [
             'name' => $name,
+            'desc' => $desc,
             'list' => $top,
             'in_list' => ToolService::checkInList($name, $top)
         ];
         return Response::html("base64", $data);
     }
 
+    public function randPwd(){
+        $name = 'RandChar';
+        $desc = '随机密码';
+        $top = ToolsModel::getInstance()->getTopList();
+        $data = [
+            'name' => $name,
+            'desc' => $desc,
+            'list' => $top,
+            'in_list' => ToolService::checkInList($name, $top)
+        ];
+        return Response::html("randPwd", $data);
+    }
 
 }

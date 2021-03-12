@@ -1,0 +1,60 @@
+<?php include "common/header.html" ?>
+
+<div class="container">
+    <div class="m-2 text-center">
+        <h3><span class="badge bg-success fs-6">Box3.cc</span><span class="fs-4 mx-2">工具箱</span><small class="fs-6 text-secondary">(最好用的开发工具箱)</small></h3>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md">
+            <?php include "common/tools.html" ?>
+            <h5 class="fs-7">请选择要进行  <span class="badge bg-light text-dark"><?=$desc?></span>  的生成要求:</h5>
+
+            <div class="box">
+                <ul class="vlist clearfix">
+                    <li><span class="me-3">使用字符：</span>
+                        <input class="form-check-input" type="checkbox" name="char" value="char_upper" id="char_upper" checked>
+                        <label class="form-check-label me-3 ps-1" for="char_upper">A - Z</label>
+                        <input class="form-check-input" type="checkbox" name="char" value="char_lower" id="char_lower" checked>
+                        <label class="form-check-label me-3 ps-1" for="char_lower">a - z</label>
+                        <input class="form-check-input" type="checkbox" name="char" value="number" id="number" checked>
+                        <label class="form-check-label me-3 ps-1" for="number">0 - 9</label>
+                        <input class="form-check-input" type="checkbox" name="char" value="special" id="special">
+                        <label class="form-check-label ps-1" for="special">! @ # $ % ^ & *</label>
+                    </li>
+                    <li><span class="me-3">密码长度：</span>
+                        <input class="form-check-input" type="radio" name="len" value="6" id="len6">
+                        <label class="form-check-label me-3 ps-1" for="len6">6位</label>
+                        <input class="form-check-input" type="radio" name="len" value="8" id="len8" checked>
+                        <label class="form-check-label me-3 ps-1" for="len8">8位</label>
+                        <input class="form-check-input" type="radio" name="len" value="16" id="len16">
+                        <label class="form-check-label me-3 ps-1" for="len16">16位</label>
+                        <input class="form-check-input" type="radio" name="len" value="32" id="len32">
+                        <label class="form-check-label me-3 ps-1" for="len32">32位</label>
+                        <input class="form-check-input" type="radio" name="len" value="64" id="len64">
+                        <label class="form-check-label me-3 ps-1" for="len64">64位</label>
+                        <input class="form-check-input" type="radio" name="len" value="x" id="lenx">
+                        <label class="form-check-label me-3 ps-1" for="lenx">自定义</label>
+                        <input class="form-sm" type="text" id="lenx-value" value="" style="display: none">
+
+                    </li>
+                </ul>
+            </div>
+            <?php include "common/create.html" ?>
+            <h5 class="fs-7  mt-3"> <span class="badge bg-light text-dark"><?=$desc?></span>  生成结果：<span class="float-end fw-bold"><label><input type="checkbox" id="select_all" > 结果自动全选</label></span></h5>
+            <textarea name="result" id="result" class="form-control text  mt-3" cols="80" rows="6" placeholder=""></textarea>
+            <div id="alert" class="alert alert-info mt-3 fs-7">请在上方第一个文本框中输入要编码/解码的字符。</div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-md text-center">
+            <hr>
+            <h5><span class="fs-8 text-secondary">Box3.cc</span><span class="fs-8 mx-2 text-secondary">&copy;2021 Powered By Kunkka Wu</span></h5>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<?php include "common/footer.html" ?>

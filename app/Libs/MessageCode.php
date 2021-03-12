@@ -17,6 +17,8 @@ class MessageCode {
     const INVALID_TOOL                  = 1000; # 非法工具
     const INVALID_TYPE                  = 1001; # 非法类型
     const INVALID_TEXT                  = 1002; # 内容错误
+    const INVALID_CHAR                  = 1003; # 使用字符错误
+    const INVALID_LEN                   = 1004; # 选择长度错误
 
 
 
@@ -37,6 +39,8 @@ class MessageCode {
         1000                => '非法工具',
         1001                => '非法类型',
         1002                => '内容错误',
+        1003                => '使用字符错误',
+        1004                => '选择长度错误',
 
 
     ];

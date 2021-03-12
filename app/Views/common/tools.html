@@ -1,0 +1,18 @@
+<ol class="list clearfix">
+    <?php if(!$in_list) { ?>
+    <li class="active"><button class="btn btn-ss btn-outline-secondary"><?=$name?></button></li>
+    <?php } ?>
+
+    <?php
+                if(!empty($list)) {
+                    foreach($list as $item) {
+                        if ($item->title == $name) {
+    ?>
+    <li class="active"><button class="btn btn-ss btn-secondary"><?=$item->desc?></button></li>
+    <?php } else { ?>
+    <li><a title="<?=$item->title?>" href="<?=$item->url?>" ><button class="btn btn-ss btn-outline-secondary "><?=$item->desc?></button></a></li>
+    <?php } } } ?>
+
+    <li><a title="全部工具" href="/tools" ><button class="btn btn-ss btn-outline-secondary">全部工具</button></a></li>
+
+</ol>
