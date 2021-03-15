@@ -22,7 +22,7 @@ class BeforeMiddleware{
         $clientKey = RedisKey::getClientKey($ip, $time);
         $redis = new Redis();
         $num = $redis->incr($clientKey);
-        if ($num > 6){
+        if ($num > 60){
             echo json_encode(Response::fake(MessageCode::FAKE_ERROR));
             die();
         }
