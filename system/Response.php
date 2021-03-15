@@ -74,6 +74,15 @@ class Response{
         return $results;
     }
 
+    public static function fake($code) {
+        self::setHeader();
+        $results = [
+            'code' => $code,
+            'msg' => MessageCode::getMessage($code)
+        ];
+        return $results;
+    }
+
     private static function setHeader(){
         $headerStr = 'Content-Type:'.self::$contentType.';charset='.self::$charset;
         if(!empty(self::$header)){

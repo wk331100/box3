@@ -50,7 +50,8 @@ $("#create").click(function () {
             params =  RandChar();
     }
     if (params !== false){
-        sendCreate(url, params)
+        sendCreate(url, params);
+        $('#create').attr("disabled", true);
     }
 });
 
@@ -73,6 +74,13 @@ function send(url, params, len) {
                 alertObj.html("解析完成，原文本字节数: " + len + ",  编码后字节数：" + result.data.length);
                 removeClass(alertObj);
                 alertObj.addClass('alert-success');
+            } else if (result.code === 101){
+                fake('encode', result.msg);
+            } else {
+                alertObj.html("解析失败，原因：" + result.msg);
+                removeClass(alertObj);
+                alertObj.addClass('alert-warning');
+                $('#create').attr("disabled",false);
             }
         },
         //请求失败，包含具体的错误信息
@@ -80,6 +88,7 @@ function send(url, params, len) {
             alertObj.html("解析失败，原因：" + e.responseText);
             removeClass(alertObj);
             alertObj.addClass('alert-warning');
+            $('#encode').attr("disabled",false);
         }
     });
 }
@@ -100,6 +109,15 @@ function sendCreate(url, params) {
                 alertObj.html("生成完成");
                 removeClass(alertObj);
                 alertObj.addClass('alert-success');
+                $('#create').attr("disabled",false);
+            } else if (result.code === 101){
+                fake('create', result.msg);
+
+            } else {
+                alertObj.html("生成失败，原因：" + result.msg);
+                removeClass(alertObj);
+                alertObj.addClass('alert-warning');
+                $('#create').attr("disabled",false);
             }
         },
         //请求失败，包含具体的错误信息
@@ -107,6 +125,7 @@ function sendCreate(url, params) {
             alertObj.html("生成失败，原因：" + e.responseText);
             removeClass(alertObj);
             alertObj.addClass('alert-warning');
+            $('#create').attr("disabled",false);
         }
     });
 }
@@ -118,6 +137,37 @@ function removeClass(obj) {
     obj.removeClass('alert-warning')
 }
 
+function fake(op, msg) {
+    alertObj = $("#alert");
+    removeClass(alertObj);
+    if (op === 'create') {
+        $('#create').attr("disabled",true);
+    } else if (op === 'encode'){
+        $('#encode').attr("disabled",true);
+        $('#decode').attr("disabled",true);
+    }
+
+    alertObj.addClass('alert-danger');
+    var i = 60;
+    $t1 = setInterval(function(){
+        if (i <= 0) {
+            removeClass(alertObj);
+            alertObj.addClass('alert-primary');
+            alertObj.html("请求锁定已解除");
+            clearInterval($t1);
+            if (op === 'create') {
+                $('#create').attr("disabled",false);
+            } else if (op === 'encode'){
+                $('#encode').attr("disabled",false);
+                $('#decode').attr("disabled",false);
+            }
+        } else {
+            alertObj.html(msg + " 请求锁定剩余 ：" + i);
+            i--;
+        }
+    }, 1000)
+
+}
 
 
 function RandChar(){

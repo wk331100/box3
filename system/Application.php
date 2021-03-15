@@ -56,13 +56,6 @@ class Application{
         //执行加载
         $request = new Request($_REQUEST);
 
-        //执行前置中间件
-        if(!empty($this->beforeMiddleware)){
-            foreach ($this->beforeMiddleware as $middleware){
-                call_user_func($middleware . '::handle', $request);
-            }
-        }
-
         //执行路由中间件
         if(!empty($this->routeMiddleware) && !empty(Route::$routeMiddleware)){
             foreach (Route::$routeMiddleware as $middleware){

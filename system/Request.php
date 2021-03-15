@@ -8,6 +8,7 @@ class Request{
 
     function __construct($params) {
         $this->params = $params;
+        $this->params['ip'] = $_SERVER['REMOTE_ADDR'];
     }
 
     public function all(){

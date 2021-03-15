@@ -21,7 +21,9 @@ class RandCharService{
         if (empty($data['len'])){
             throw new ServiceException(MessageCode::INVALID_LEN);
         }
-
+        if($data['len'] > 1024){
+            throw new ServiceException(MessageCode::INVALID_LEN_OUT);
+        }
         $char = self::parseChar(explode('|', $data['char']));
 
         return Util::makeCode($char, $data['len']);
