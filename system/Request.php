@@ -16,7 +16,7 @@ class Request{
     }
 
     public function input($key, $default = ''){
-       return isset($this->params[$key]) ? $this->params[$key] : $default;
+       return trim(isset($this->params[$key]) ? $this->params[$key] : $default);
     }
 
     public function setParam($key, $value){

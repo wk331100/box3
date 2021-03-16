@@ -49,13 +49,16 @@ $("#create").click(function () {
     switch(name) {
         case "RandChar" :
             params =  RandChar();
+            break;
         case "Md5" :
             params =  "text=" + $("#text").val();
+            break;
         case "Qrcode" :
             var text = $("#text").val()
             var alertObj = $("#alert");
+            console.log(text.length)
             if (text.length <= 0){
-                alertObj.html("生成失败，内容错误");
+                alertObj.html("生成失败，内容错误！");
                 removeClass(alertObj);
                 alertObj.addClass('alert-warning');
             } else {
@@ -64,7 +67,6 @@ $("#create").click(function () {
                 removeClass(alertObj);
                 alertObj.addClass('alert-success');
             }
-
             return
     }
     if (params !== false){
