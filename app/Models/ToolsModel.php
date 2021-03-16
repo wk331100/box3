@@ -19,8 +19,12 @@ class ToolsModel extends DB  {
         return self::$_instance;
     }
 
+    public function getInfoByUrl($url){
+        return DBMysql::table($this->table)->where(["url" => $url])->first();
+    }
+
     public function getTopList(){
-        return DBMysql::table($this->table)->orderByDesc("top")->take(10)->get();
+        return DBMysql::table($this->table)->where(["enabled" => '1'])->orderByDesc("top")->take(10)->get();
     }
 
     public function getActiveList(){

@@ -14,9 +14,17 @@ use System\Route;
 
 Route::get('/', 'IndexController@index');
 Route::get('/base64', 'IndexController@base64');
+Route::get('/urlEncode', 'IndexController@urlEncode');
+Route::get('/timeFormate', 'IndexController@timeFormate');
+
+
 Route::get('/randPwd', 'IndexController@randPwd');
+Route::get('/md5', 'IndexController@md5');
+Route::get('/qrcode', 'IndexController@qrcode');
+Route::get('/qrcodeImg', 'IndexController@qrcodeImg');
 
 Route::post('/execute', 'ExecController@index');
+Route::post('/executeImg', 'ExecController@img');
 
 
 

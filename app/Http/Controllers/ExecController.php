@@ -31,6 +31,22 @@ class ExecController extends Controller {
         }
     }
 
+    public function img(Request $request){
+        try {
+            $tool = $request->input('tool');
+            $type = $request->input('type');
+            $data = [
+                "text" => $request->input('text'),
+                "char" => $request->input('char'),
+                "len" => $request->input('len')
+            ];
+            $result = ExecService::Run($tool, $type, $data);
+            Response::image($result);
+        } catch (ServiceException $e){
+            return Response::error($e);
+        }
+    }
+
 
 
 

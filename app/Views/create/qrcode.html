@@ -1,0 +1,31 @@
+<?php include VIEW_PATH . "/common/header.html" ?>
+
+<div class="container">
+    <div class="m-2 text-center">
+        <h3><span class="badge bg-success fs-6">Box3.cc</span><span class="fs-4 mx-2">工具箱</span><small class="fs-6 text-secondary">(最好用的开发工具箱)</small></h3>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md">
+            <?php include VIEW_PATH . "/common/tools.html" ?>
+            <h5 class="fs-7">请输入要进行 <span class="badge bg-light text-dark"><?=$desc?></span> 的内容: </h5>
+            <textarea name="text" id="text" class="form-control text mt-3" cols="80" rows="6" placeholder=""></textarea>
+            <?php include VIEW_PATH . "/common/create.html" ?>
+
+            <h5 class="fs-7  mt-3"> <span class="badge bg-light text-dark"><?=$desc?></span>  转换结果：<span class="float-end fw-bold"><label><input type="checkbox" id="select_all" > 结果自动全选</label></span></h5>
+            <div name="result" id="result" class="form-control text mt-3 " style="min-height: calc(1.5em + .75rem + 2px);" placeholder=""></div>
+            <div id="alert" class="alert alert-info mt-3 fs-7">请在上方第一个文本框中输入要转换的字符。</div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-md text-center">
+            <hr>
+            <h5><span class="fs-8 text-secondary">Box3.cc</span><span class="fs-8 mx-2 text-secondary">&copy;2021 Powered By Kunkka Wu</span></h5>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<?php include VIEW_PATH . "/common/footer.html" ?>

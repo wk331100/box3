@@ -25,8 +25,17 @@ class ToolService{
         return $toolArray;
     }
 
-    public static function Execute(){
-
+    public static function buildEncode($url){
+        $toolInfo = ToolsModel::getInstance()->getInfoByUrl($url);
+        $top = ToolsModel::getInstance()->getTopList();
+        $data = [
+            'title' => $toolInfo->title,
+            'desc' => $toolInfo->desc,
+            'list' => $top,
+            'in_list' => ToolService::checkInList($toolInfo->title, $top)
+        ];
+        return $data;
     }
+
 
 }

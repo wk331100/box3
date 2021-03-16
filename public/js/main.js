@@ -40,6 +40,7 @@ $('input[type=radio][name=len]').change(function () {
 $("#create").click(function () {
     var url = $("#target").val() + "&type=create";
     var name = $("#name").val();
+    var type = 'json';
     var params = '';
 
     console.log(url);
@@ -48,9 +49,26 @@ $("#create").click(function () {
     switch(name) {
         case "RandChar" :
             params =  RandChar();
+        case "Md5" :
+            params =  "text=" + $("#text").val();
+        case "Qrcode" :
+            var text = $("#text").val()
+            var alertObj = $("#alert");
+            if (text.length <= 0){
+                alertObj.html("生成失败，内容错误");
+                removeClass(alertObj);
+                alertObj.addClass('alert-warning');
+            } else {
+                $("#result").html("<img src='/qrcodeImg?text="+text+"'>");
+                alertObj.html("生成完成");
+                removeClass(alertObj);
+                alertObj.addClass('alert-success');
+            }
+
+            return
     }
     if (params !== false){
-        sendCreate(url, params);
+        sendCreate(url, params, type);
         $('#create').attr("disabled", true);
     }
 });
@@ -93,17 +111,16 @@ function send(url, params, len) {
     });
 }
 
-function sendCreate(url, params) {
+function sendCreate(url, params, type) {
     var alertObj = $("#alert");
     $.ajax({
         //请求方式
         type : "POST",
-        dataType: "json",//预期服务器返回的数据类型
+        dataType: type,//预期服务器返回的数据类型
         url : url,
         data : params,
         //请求成功
-        success : function(result) {
-            console.log(result);
+        success : function(result, resType, xhr ) {
             if (result.code === 200) {
                 $("#result").val(result.data);
                 alertObj.html("生成完成");
@@ -190,6 +207,8 @@ function RandChar(){
     char = char.substring(0,char.length - 1);
     return "char=" + char + "&len=" + len
 }
+
+
 
 
 

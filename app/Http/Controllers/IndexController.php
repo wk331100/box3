@@ -6,6 +6,7 @@ use App\Libs\Util;
 use App\Models\InviteCodeModel;
 use App\Models\ToolsModel;
 use App\Models\UserModel;
+use App\Services\QrcodeService;
 use App\Services\ToolService;
 use System\Redirect;
 use System\Request;
@@ -17,30 +18,49 @@ class IndexController extends Controller {
         Redirect::to('/base64');
     }
 
-    public function base64(){
-        $name = 'Base64';
-        $desc = 'Base64';
-        $top = ToolsModel::getInstance()->getTopList();
-        $data = [
-            'name' => $name,
-            'desc' => $desc,
-            'list' => $top,
-            'in_list' => ToolService::checkInList($name, $top)
-        ];
-        return Response::html("base64", $data);
+    public function base64(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url);
+        return Response::html("encode/default", $data);
     }
 
-    public function randPwd(){
-        $name = 'RandChar';
-        $desc = '随机密码';
-        $top = ToolsModel::getInstance()->getTopList();
+    public function urlEncode(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url);
+        return Response::html("encode/default", $data);
+    }
+
+    public function randPwd(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url);
+        return Response::html("create/randPwd", $data);
+    }
+
+    public function md5(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url);
+        return Response::html("create/md5", $data);
+    }
+
+    public function qrcode(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url);
+        return Response::html("create/qrcode", $data);
+    }
+
+    public function qrcodeImg(Request $request){
         $data = [
-            'name' => $name,
-            'desc' => $desc,
-            'list' => $top,
-            'in_list' => ToolService::checkInList($name, $top)
+            'text' => $request->input('text')
         ];
-        return Response::html("randPwd", $data);
+        $result = QrcodeService::Create($data);
+        Response::image($result);
+    }
+
+    public function timeFormate(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url);
+
+        return Response::html("create/timeFormate", $data);
     }
 
 }

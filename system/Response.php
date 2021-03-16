@@ -28,6 +28,15 @@ class Response{
         return $str;
     }
 
+    public static function image($img){
+        $fp =fopen($img, 'rb');
+        header("Content-Type: image/png");
+        header("Content-Length: ".filesize($img));
+        fpassthru($fp);
+        exit();
+    }
+
+
     public static function json($data){
         self::setHeader();
         $data = ($data == false) ? self::failed($data) : self::success($data);
@@ -87,7 +96,7 @@ class Response{
         $headerStr = 'Content-Type:'.self::$contentType.';charset='.self::$charset;
         if(!empty(self::$header)){
             foreach (self::$header as $key => $value){
-                if(!in_array($key, ['Content-Type', 'charset']))
+                if(!in_array($key, ['Content-Type', 'charset', 'Content-Length']))
                 $headerStr .= ';' . $key . '=' . $value;
             }
         }

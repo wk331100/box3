@@ -3,6 +3,7 @@ ini_set("display_errors", "On");
 session_start();
 define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR . '..');
 define('APP_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'app');
+define('IMG_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'storage/img');
 define('VIEW_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'app/Views');
 
 //require __DIR__.'/../vendor/autoload.php';
