@@ -11,7 +11,6 @@ class TimeFormateService{
 
 
     public static function Encode($data){
-        var_dump($data);
         if (empty($data['text']) || !is_numeric($data['text'])){
             throw new ServiceException(MessageCode::INVALID_TEXT);
         }
