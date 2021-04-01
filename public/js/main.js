@@ -62,7 +62,7 @@ $("#create").click(function () {
                 removeClass(alertObj);
                 alertObj.addClass('alert-warning');
             } else {
-                $("#result").html("<img src='/qrcodeImg?text="+text+"'>");
+                $("#result").html("<img src='/qrcodeImg?text="+text+"' height='250' width='250'>");
                 alertObj.html("生成完成");
                 removeClass(alertObj);
                 alertObj.addClass('alert-success');
