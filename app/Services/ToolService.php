@@ -1,7 +1,9 @@
 <?php
 namespace App\Services;
 
+use App\Libs\RedisKey;
 use App\Models\ToolsModel;
+use System\Redis;
 
 class ToolService{
 
@@ -25,7 +27,7 @@ class ToolService{
         return $toolArray;
     }
 
-    public static function buildEncode($url){
+    public static function buildEncode($url, $request){
         $toolInfo = ToolsModel::getInstance()->getInfoByUrl($url);
         $top = ToolsModel::getInstance()->getTopList();
         $data = [
@@ -34,8 +36,19 @@ class ToolService{
             'list' => $top,
             'in_list' => ToolService::checkInList($toolInfo->title, $top)
         ];
-        return $data;
+
+        return self::bindExtData($data, $request);
     }
 
+    public static function bindExtData($data, $request){
+        $ip = $request->input('ip');
+        $redis = new  Redis();
+        $bindArray = [
+            'client_ip' => $ip,
+            'online_users' => $redis->scount("online:*", 100000000),
+            'visit' => $redis->get(RedisKey::VISIT)
+        ];
+        return array_merge($data, $bindArray);
+    }
 
 }

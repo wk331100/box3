@@ -17,6 +17,8 @@ class BeforeMiddleware{
         $request->setParam('request_id', strtoupper($requestId));
 
         $ip = $request->input('ip');
+        //统计在线IP
+        self::countOnlineIP($ip);
         //检查用户请求频率
         $time = date("YmdHi");
         $clientKey = RedisKey::getClientKey($ip, $time);
@@ -26,6 +28,13 @@ class BeforeMiddleware{
             echo json_encode(Response::fake(MessageCode::FAKE_ERROR));
             die();
         }
+    }
+
+    public static function countOnlineIP($ip){
+        $onlineKey = RedisKey::getOnlineKey($ip);
+        $redis = new  Redis();
+        $redis->setex($onlineKey, 1800, 1);
+        $redis->incr(RedisKey::VISIT);
     }
 
 

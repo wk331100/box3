@@ -41,7 +41,7 @@ class Redis{
 
 
     public function get($key){
-        $this->_connector->set($key);
+        return $this->_connector->get($key);
     }
 
     public function incr($key){
@@ -62,6 +62,30 @@ class Redis{
 
     public function del($key){
         $this->_connector->del($key);
+    }
+
+    public function hset($key, $field, $val){
+        $this->_connector->hset($key, $field, $val);
+    }
+
+    public function hget($key, $field){
+        $this->_connector->hget($key, $field);
+    }
+
+    public function scan($match, $count){
+        $iterator = null;
+        $items = [];
+        while (true) {
+            $keys = $this->_connector->scan($iterator, $match, $count);
+            if ($keys === false) {//迭代结束，未找到匹配pattern的key
+                return $items;
+            }
+            $items = array_merge($items, $keys);
+        }
+    }
+
+    public function scount($match, $count){
+        return count($this->scan($match, $count));
     }
 
 }

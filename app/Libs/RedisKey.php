@@ -8,6 +8,8 @@ class RedisKey
     const CONFIG_KEY                = "app:config:key";
     const LOGIN_TOKEN_USER          = "app:login:token:%s";
     const CLIENT_REQUEST_KEY        = "request:%s:%s";
+    const ONLINE_USER               = "online:%s";
+    const VISIT                     = "visit";
 
 
     /**
@@ -27,5 +29,14 @@ class RedisKey
      */
     public static function getClientKey($ip, $time) {
         return sprintf(self::CLIENT_REQUEST_KEY, $ip, $time);
+    }
+
+    /**
+     * 获取客户端在线统计
+     * @param $token
+     * @return string
+     */
+    public static function getOnlineKey($ip) {
+        return sprintf(self::ONLINE_USER, $ip);
     }
 }

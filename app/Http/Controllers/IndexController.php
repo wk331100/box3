@@ -20,31 +20,31 @@ class IndexController extends Controller {
 
     public function base64(Request $request){
         $url = $request->input('_url');
-        $data = ToolService::buildEncode($url);
+        $data = ToolService::buildEncode($url, $request);
         return Response::html("encode/default", $data);
     }
 
     public function urlEncode(Request $request){
         $url = $request->input('_url');
-        $data = ToolService::buildEncode($url);
+        $data = ToolService::buildEncode($url, $request);
         return Response::html("encode/default", $data);
     }
 
     public function randPwd(Request $request){
         $url = $request->input('_url');
-        $data = ToolService::buildEncode($url);
+        $data = ToolService::buildEncode($url, $request);
         return Response::html("create/randPwd", $data);
     }
 
     public function md5(Request $request){
         $url = $request->input('_url');
-        $data = ToolService::buildEncode($url);
+        $data = ToolService::buildEncode($url, $request);
         return Response::html("create/md5", $data);
     }
 
     public function qrcode(Request $request){
         $url = $request->input('_url');
-        $data = ToolService::buildEncode($url);
+        $data = ToolService::buildEncode($url, $request);
         return Response::html("create/qrcode", $data);
     }
 
@@ -58,7 +58,7 @@ class IndexController extends Controller {
 
     public function timeFormate(Request $request){
         $url = $request->input('_url');
-        $data = ToolService::buildEncode($url);
+        $data = ToolService::buildEncode($url, $request);
 
         return Response::html("create/timeFormate", $data);
     }
