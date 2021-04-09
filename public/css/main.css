@@ -83,13 +83,13 @@ a {
 
 .list{
     list-style: none;
-    padding: 8px 15px;
+    padding: 8px 10px;
     margin-bottom: 20px;
-    background-color: #f5f5f5;
+    background-color: #f8f8f8;
     border-radius: 4px;
     font-size: 14px;
 }
-.list li{float: left; margin-right: 1em;}
+.list li{float: left; margin: 0.2em 0.5em;}
 
 .vlist{
     list-style: none;
