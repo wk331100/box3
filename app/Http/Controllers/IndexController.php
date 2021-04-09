@@ -18,6 +18,16 @@ class IndexController extends Controller {
         Redirect::to('/base64');
     }
 
+    public function tools(Request $request){
+        $data = [
+            'list' => ToolService::getToolList(),
+            'type' => ToolService::getTypeList()
+        ];
+        $data = ToolService::bindExtData($data, $request);
+        return Response::html("tools", $data);
+    }
+
+
     public function base64(Request $request){
         $url = $request->input('_url');
         $data = ToolService::buildEncode($url, $request);

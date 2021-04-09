@@ -1,0 +1,26 @@
+<?php include VIEW_PATH . "/common/header.html" ?>
+<div class="row mt-4">
+    <div class="col-md">
+        <?php foreach($type as $item) { ?>
+        <div class="card mb-2">
+            <h5 class="card-header fs-6"><?php echo $item->type; ?></h5>
+            <div class="card-body">
+                <?php foreach($list as $item2) { ?>
+                <?php if($item2->type == $item->type) { ?>
+                <div class="col-sm-2 float-start me-1">
+                    <div class="card btn-outline-primary">
+                        <a href="<?php echo $item2->url; ?>" class="btn-outline-primary  fs-7"><div class="card-body">
+                            <h5 class="card-title text-center fs-7"><?php echo $item2->title; ?></h5>
+                            <p class="card-text text-center  fs-7"><?php echo $item2->desc; ?></p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <?php } } ?>
+            </div>
+        </div>
+    <?php  } ?>
+    </div>
+</div>
+
+<?php include VIEW_PATH . "/common/footer.html" ?>

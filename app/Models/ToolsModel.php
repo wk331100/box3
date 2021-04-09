@@ -31,4 +31,7 @@ class ToolsModel extends DB  {
         return DBMysql::table($this->table)->where(["enabled" => '1'])->get();
     }
 
+    public function getTypeList(){
+        return DBMysql::table($this->table)->select(['type'])->where(["enabled" => '1'])->groupBy("type")->get();
+    }
 }

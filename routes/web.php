@@ -13,6 +13,7 @@
 use System\Route;
 
 Route::get('/', 'IndexController@index');
+Route::get('/tools', 'IndexController@tools');
 Route::get('/base64', 'IndexController@base64');
 Route::get('/urlEncode', 'IndexController@urlEncode');
 Route::get('/timeFormate', 'IndexController@timeFormate');

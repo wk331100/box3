@@ -7,6 +7,14 @@ use System\Redis;
 
 class ToolService{
 
+    public static function getToolList(){
+        return ToolsModel::getInstance()->getActiveList();
+    }
+
+    public static function getTypeList(){
+        return ToolsModel::getInstance()->getTypeList();
+    }
+
     public static function checkInList($key, $list){
         foreach ($list as $item){
             if( $key == $item->title) {

@@ -145,7 +145,7 @@ class DBMysql{
         if(is_array($column)){
             $this->_group = implode(',', $column);
         } else {
-            $this->_group = $column;
+            $this->_group = '`'.$column.'`';
         }
         return $this;
     }
@@ -209,7 +209,6 @@ class DBMysql{
         $sql = $this->prepareSql($operation);
         $values = $this->prepareValues($operation);
         $stmt  = $this->_connector->prepare($sql);
-//        var_dump($values);
 
         if($operation == self::SELECT){
             if(!empty($values)){
