@@ -8,11 +8,12 @@
                 <?php foreach($list as $item2) { ?>
                 <?php if($item2->type == $item->type) { ?>
                 <div class="col-sm-2 float-start me-1">
-                    <div class="card btn-outline-primary">
-                        <a href="<?php echo $item2->url; ?>" class="btn-outline-primary  fs-7"><div class="card-body">
-                            <h5 class="card-title text-center fs-7"><?php echo $item2->title; ?></h5>
-                            <p class="card-text text-center  fs-7"><?php echo $item2->desc; ?></p>
-                        </div>
+                    <div class="card btn-outline-primary" style="margin: 0.2em 0.5em">
+                        <a href="<?php echo $item2->url; ?>" class="btn-outline-primary fs-7">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fs-7"><?php echo $item2->title; ?></h5>
+                                <p class="card-text text-center  fs-7"><?php echo $item2->desc; ?></p>
+                            </div>
                         </a>
                     </div>
                 </div>
