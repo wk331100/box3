@@ -23,6 +23,7 @@ Route::get('/randPwd', 'IndexController@randPwd');
 Route::get('/md5', 'IndexController@md5');
 Route::get('/qrcode', 'IndexController@qrcode');
 Route::get('/qrcodeImg', 'IndexController@qrcodeImg');
+Route::get('/shuffle', 'IndexController@shuffle');
 
 Route::post('/execute', 'ExecController@index');
 Route::post('/executeImg', 'ExecController@img');

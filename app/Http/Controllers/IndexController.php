@@ -75,4 +75,10 @@ class IndexController extends Controller {
         return Response::html("create/timeFormate", $data);
     }
 
+    public function shuffle(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url, $request);
+        return Response::html("create/shuffle", $data);
+    }
+
 }

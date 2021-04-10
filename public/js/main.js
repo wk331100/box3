@@ -68,6 +68,8 @@ $("#create").click(function () {
                 alertObj.addClass('alert-success');
             }
             return
+        default:
+            params =  "text=" + $("#text").val();
     }
     if (params !== false){
         sendCreate(url, params, type);
