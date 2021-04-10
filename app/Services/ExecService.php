@@ -9,7 +9,7 @@ use System\Application;
 class ExecService{
 
     public static $type = [
-        'encode' , 'decode', 'create','format','compress'
+        'encode' , 'decode', 'create'
     ];
 
     public static function Run($tool, $type, $data){
