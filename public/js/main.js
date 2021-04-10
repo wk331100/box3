@@ -53,7 +53,7 @@ $("#create").click(function () {
         case "Md5" :
             params =  "text=" + $("#text").val();
             break;
-        case "QRcode" :
+        case "Qrcode" :
             var text = $("#text").val()
             var alertObj = $("#alert");
             console.log(text.length)
