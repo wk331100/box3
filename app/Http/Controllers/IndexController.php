@@ -81,4 +81,10 @@ class IndexController extends Controller {
         return Response::html("create/shuffle", $data);
     }
 
+    public function jsonEncode(Request $request){
+        $url = $request->input('_url');
+        $data = ToolService::buildEncode($url, $request);
+        return Response::html("encode/json", $data);
+    }
+
 }

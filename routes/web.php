@@ -16,6 +16,7 @@ Route::get('/', 'IndexController@index');
 Route::get('/tools', 'IndexController@tools');
 Route::get('/base64', 'IndexController@base64');
 Route::get('/urlEncode', 'IndexController@urlEncode');
+Route::get('/jsonEncode', 'IndexController@jsonEncode');
 Route::get('/timeFormate', 'IndexController@timeFormate');
 
 

@@ -25,6 +25,26 @@ $("#decode").click(function () {
     send(url, params, text.length)
 });
 
+
+$("#format").click(function () {
+    var text = $("#text").val();
+    $("#result").val(JSON.stringify(JSON.parse(text),null,4));
+    var alertObj = $("#alert");
+    alertObj.html("格式化完成");
+    removeClass(alertObj);
+    alertObj.addClass('alert-success');
+
+});
+
+$("#compress").click(function () {
+    var text = $("#text").val();
+    $("#result").val(JSON.stringify(JSON.parse(text),null,0));
+    var alertObj = $("#alert");
+    alertObj.html("格式化完成");
+    removeClass(alertObj);
+    alertObj.addClass('alert-success');
+});
+
 $('input[type=radio][name=len]').change(function () {
     console.log($(this).val());
     if ($(this).val() == 'x') {
