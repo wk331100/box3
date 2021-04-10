@@ -26,9 +26,12 @@ class RandCharService{
         }
         $charItems = explode('|', $data['char']);
 
+        //先随机出必包含的字符
         $mainChar = self::makeMainChar($charItems);
         $char = self::parseChar($charItems);
+        //再从总随机包中随机出剩余字符
         $rest = Util::makeCode($char, $data['len'] - count($charItems));
+        //将所有字符打乱
         $arr = str_split($mainChar . $rest);
         shuffle($arr);
         return implode($arr,'');
