@@ -28,43 +28,41 @@ class RandCharService{
 
         //先随机出必包含的字符
         $mainChar = self::makeMainChar($charItems);
-        $char = self::parseChar($charItems);
         //再从总随机包中随机出剩余字符
-        $rest = Util::makeCode($char, $data['len'] - count($charItems));
+        $rest = Util::makeCode($mainChar['chars'], $data['len'] - count($charItems));
         //将所有字符打乱
-        $arr = str_split($mainChar . $rest);
+        $arr = str_split($mainChar['main'] . $rest);
         shuffle($arr);
         return implode($arr,'');
     }
 
     public static function makeMainChar($charArray = []){
-        $char = "";
+        $result = [
+            "main" => '',
+            'chars' => '',
+
+        ];
         foreach ($charArray as $item){
             switch ($item){
-                case "char_upper" : $char .= Util::makeCode(self::CHAR_UPPER, 1); break;
-                case "char_lower" : $char .= Util::makeCode(self::CHAR_LOWER, 1); break;
-                case "number" : $char .= Util::makeCode(self::NUMBER, 1); break;
-                case "special" : $char .= Util::makeCode(self::SPECIAL, 1); break;
+                case "char_upper" :
+                    $result["main"] .= Util::makeCode(self::CHAR_UPPER, 1);
+                    $result['chars'] .= self::CHAR_UPPER;
+                    break;
+                case "char_lower" :
+                    $result["main"] .= Util::makeCode(self::CHAR_LOWER, 1);
+                    $result['chars'] .= self::CHAR_LOWER;
+                    break;
+                case "number" :
+                    $result["main"] .= Util::makeCode(self::NUMBER, 1);
+                    $result['chars'] .= self::NUMBER;
+                    break;
+                case "special" :
+                    $result["main"] .= Util::makeCode(self::SPECIAL, 1);
+                    $result['chars'] .= self::SPECIAL;
+                    break;
             }
         }
-        return $char;
+        return $result;
     }
-
-    public static function parseChar($charArray = []){
-        $char = "";
-        foreach ($charArray as $item){
-            switch ($item){
-                case "char_upper" : $char .= self::CHAR_UPPER; break;
-                case "char_lower" : $char .= self::CHAR_LOWER; break;
-                case "number" : $char .= self::NUMBER; break;
-                case "special" : $char .= self::SPECIAL; break;
-            }
-        }
-        return $char;
-    }
-
-
-
-
 
 }
