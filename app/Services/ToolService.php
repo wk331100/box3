@@ -7,8 +7,19 @@ use System\Redis;
 
 class ToolService{
 
+    const META_DESC = 'Box3.cc是一个简约的工具箱，为站长和互联网从业者提供免费的工具，我们的工具有在线Base64工具,在线加密工具,随机密码,二维码生成,代码格式化工具,正则工具等';
+
     public static function getToolList(){
         return ToolsModel::getInstance()->getActiveList();
+    }
+
+    public static function getToolMetaKey(){
+        $list = self::getToolList();
+        $keyArr = [];
+        foreach ($list as $item){
+            $keyArr[] = $item->desc;
+        }
+        return implode(',', $keyArr);
     }
 
     public static function getTypeList(){
@@ -42,6 +53,8 @@ class ToolService{
             'title' => $toolInfo->title,
             'desc' => $toolInfo->desc,
             'list' => $top,
+            'meta_key' => $toolInfo->meta_key,
+            'meta_desc' => $toolInfo->meta_desc,
             'in_list' => ToolService::checkInList($toolInfo->title, $top)
         ];
 
@@ -54,7 +67,7 @@ class ToolService{
         $bindArray = [
             'client_ip' => $ip,
             'online_users' => $redis->scount("online:*", 100000000),
-            'visit' => $redis->get(RedisKey::VISIT)
+            'visit' => $redis->get(RedisKey::VISIT),
         ];
         return array_merge($data, $bindArray);
     }

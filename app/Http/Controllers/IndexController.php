@@ -6,7 +6,7 @@ use App\Libs\Util;
 use App\Models\InviteCodeModel;
 use App\Models\ToolsModel;
 use App\Models\UserModel;
-use App\Services\QrcodeService;
+use App\Services\QRcodeService;
 use App\Services\ToolService;
 use System\Redirect;
 use System\Request;
@@ -21,7 +21,9 @@ class IndexController extends Controller {
     public function tools(Request $request){
         $data = [
             'list' => ToolService::getToolList(),
-            'type' => ToolService::getTypeList()
+            'type' => ToolService::getTypeList(),
+            'meta_key' => ToolService::getToolMetaKey(),
+            'meta_desc' => ToolService::META_DESC,
         ];
         $data = ToolService::bindExtData($data, $request);
         return Response::html("tools", $data);
@@ -62,7 +64,7 @@ class IndexController extends Controller {
         $data = [
             'text' => $request->input('text')
         ];
-        $result = QrcodeService::Create($data);
+        $result = QRcodeService::Create($data);
         Response::image($result);
     }
 
