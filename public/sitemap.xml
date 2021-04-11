@@ -7,51 +7,65 @@
 >
 
 <url>
- <loc>http://www.box3.cc/md5</loc>
+ <loc>http://www.box3.cc/shuffle</loc>
  <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>http://www.box3.cc/timeFormate</loc>
- <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>http://www.box3.cc/randPwd</loc>
- <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>http://www.box3.cc/tools</loc>
- <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>http://www.box3.cc</loc>
- <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
+ <lastmod>2021-04-11</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>http://www.box3.cc/urlEncode</loc>
  <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
+ <lastmod>2021-04-11</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>http://www.box3.cc/qrcode</loc>
  <priority>0.3</priority>
- <lastmod>2021-04-10</lastmod>
+ <lastmod>2021-04-11</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.box3.cc/md5</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-04-11</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.box3.cc/timeFormate</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-04-11</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.box3.cc/randPwd</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-04-11</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.box3.cc/tools</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-04-11</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.box3.cc/jsonEncode</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-04-11</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://www.box3.cc</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-04-11</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
