@@ -28,21 +28,35 @@ $("#decode").click(function () {
 
 $("#format").click(function () {
     var text = $("#text").val();
-    $("#result").val(JSON.stringify(JSON.parse(text),null,4));
     var alertObj = $("#alert");
-    alertObj.html("格式化完成");
-    removeClass(alertObj);
-    alertObj.addClass('alert-success');
+    try {
+        $("#result").val(JSON.stringify(JSON.parse(text),null,4));
+        alertObj.html("格式化完成");
+        removeClass(alertObj);
+        alertObj.addClass('alert-success');
+    } catch (err) {
+        alertObj.html("格式化失败，内容错误: "+ err.message);
+        removeClass(alertObj);
+        alertObj.addClass('alert-danger');
+        $("#result").val("");
+    }
 
 });
 
 $("#compress").click(function () {
     var text = $("#text").val();
-    $("#result").val(JSON.stringify(JSON.parse(text),null,0));
     var alertObj = $("#alert");
-    alertObj.html("格式化完成");
-    removeClass(alertObj);
-    alertObj.addClass('alert-success');
+    try {
+        $("#result").val(JSON.stringify(JSON.parse(text),null,0));
+        alertObj.html("压缩完成");
+        removeClass(alertObj);
+        alertObj.addClass('alert-success');
+    } catch(err) {
+        alertObj.html("压缩失败，内容错误：" + err.message);
+        removeClass(alertObj);
+        alertObj.addClass('alert-danger');
+        $("#result").val("");
+    }
 });
 
 $('input[type=radio][name=len]').change(function () {
