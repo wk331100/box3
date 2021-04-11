@@ -5,12 +5,12 @@
             <h5 class="fs-7">请输入要进行 <span class="badge bg-light text-dark"><?=$desc?></span> 时间戳: <span class="ms-1 text-secondary">( <?php echo time(); ?> )</span></h5>
             <textarea name="text" id="text" class="form-control text mt-3" cols="80" rows="6" placeholder=""></textarea>
             <input type="hidden" id="target" value="/execute?tool=<?=$title?>">
-            <div class=" mt-3">
-                <button id="encode" class="btn btn-primary btn-sm">转日期 (Date)</button>
-                <button id="decode" class="btn btn-outline-primary btn-sm">转时间戳 (Timestamp)</button>
-                <button id="exchange" class="btn btn-outline-primary btn-sm">↕ 交换</button>
-                <button id="clear" class="btn btn-outline-primary btn-sm">清空</button>
-                <span class="fs-7 ms-1 text-secondary">(编码快捷键：<small><kbd>Ctrl</kbd> + <kbd>Enter</kbd></small> )</span>
+            <div class=" mt-2">
+                <button id="encode" class="btn btn-primary btn-sm mt-1">转日期 (Date)</button>
+                <button id="decode" class="btn btn-outline-primary btn-sm mt-1">转时间戳 (Timestamp)</button>
+                <button id="exchange" class="btn btn-outline-primary btn-sm mt-1">↕ 交换</button>
+                <button id="clear" class="btn btn-outline-primary btn-sm mt-1">清空</button>
+                <span class="fs-7 ms-1 text-secondary mt-1">(编码快捷键：<small><kbd>Ctrl</kbd> + <kbd>Enter</kbd></small> )</span>
             </div>
 
             <h5 class="fs-7  mt-3"> <span class="badge bg-light text-dark"><?=$desc?></span>  转换结果：<span class="float-end fw-bold"><label><input type="checkbox" id="select_all" > 结果自动全选</label></span></h5>
