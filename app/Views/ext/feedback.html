@@ -1,0 +1,54 @@
+<?php include  VIEW_PATH . "/common/header.html" ?>
+<div class="row mt-4">
+    <div class="col-md">
+        <h5 class="fs-7 mt-2">请填写反馈内容:</h5>
+        <form action="/submitFeedBack" method="post">
+        <?php include  VIEW_PATH . "/common/notice.html" ?>
+        <div class="box mt-4">
+            <ul class="vlist clearfix">
+                <li class="clearfix">
+                    <div class="col-2 float-start"><span class="text-danger"> * </span> 反馈类型：</div>
+                    <div class="col-10 float-start">
+                        <input class="form-check-input" type="radio" name="type" value="error" id="len6" checked>
+                        <label class="form-check-label me-3 ps-1" for="len6">报告错误</label>
+                        <input class="form-check-input" type="radio" name="type" value="suggest" id="len8" >
+                        <label class="form-check-label me-3 ps-1" for="len8">产品建议</label>
+                        <input class="form-check-input" type="radio" name="type" value="feature" id="len16">
+                        <label class="form-check-label me-3 ps-1" for="len16">新功能需求</label>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-2 float-start"><span class="text-danger"> * </span> 详细描述：</div>
+                    <div class="col-10 float-start">
+                        <textarea name="text" id="text" class="form-control text mt-3 " cols="80" rows="6" placeholder="" required></textarea>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-2 float-start">联系邮箱：</div>
+                    <div class="col-10 float-start">
+                        <input class="form-control" type="text" name="email" value="" >
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-2 float-start">联系电话：</div>
+                    <div class="col-10 float-start">
+                        <input class="form-control" type="text" name="tel" value="" >
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-2 float-start">问题连接：</div>
+                    <div class="col-10 float-start">
+                        <input class="form-control" type="text" name="url" value="" >
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class=" mt-4 mb-4 text-center">
+            <button type="submit" class="btn btn-primary btn-sm mt-1 ">提交 (Submit)</button>
+            <span class="fs-7 ms-1 text-secondary mt-1">(提交快捷键：<small><kbd>Ctrl</kbd> + <kbd>Enter</kbd></small> )</span>
+        </div>
+        </form>
+    </div>
+</div>
+
+<?php include  VIEW_PATH . "/common/footer.html" ?>

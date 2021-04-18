@@ -18,6 +18,9 @@ class DB{
     }
 
     public function create($insertData){
+        if (!isset($insertData['create_time'])) {
+            $insertData['create_time'] = date('Y-m-d H:i:s');
+        }
         return DBMysql::table($this->table)->create($insertData);
     }
 

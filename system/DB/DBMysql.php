@@ -19,6 +19,7 @@ class DBMysql{
     const SET               = 'SET';
     const MARK              = '?';
     const ORDER_BY          = 'ORDER BY';
+    const ASC               = 'asc';
     const DESC              = 'desc';
     const GROUP_BY          = 'GROUP BY';
 
@@ -163,7 +164,7 @@ class DBMysql{
         return $this;
     }
 
-    public function count($column = '*', $as = ''){
+    public function count($column = '*', $as = 'count'){
         if($this->_columns == '*'){
             $this->_columns = "count({$column})";
         } else {
@@ -172,7 +173,8 @@ class DBMysql{
         if(!empty($as)){
             $this->_columns .= " as {$as}";
         }
-        return $this->exec(self::SELECT);
+        $result = $this->exec(self::SELECT);
+        return $result[0];
     }
 
     public function get($columns = []){
@@ -312,14 +314,14 @@ class DBMysql{
         $sqlArr = [self::SELECT, $this->_columns, self::FROM, '`'.$this->_table.'`'];
         $sqlArr = array_merge($sqlArr, self::bindWhereSql());
 
-        if(!empty($this->_order)){
-            $sqlArr[] = self::ORDER_BY;
-            $sqlArr[] = $this->_order;
-        }
-
         if(!empty($this->_group)){
             $sqlArr[] = self::GROUP_BY;
             $sqlArr[] = $this->_group;
+        }
+
+        if(!empty($this->_order)){
+            $sqlArr[] = self::ORDER_BY;
+            $sqlArr[] = $this->_order;
         }
 
         $sqlArr[] = self::LIMIT;

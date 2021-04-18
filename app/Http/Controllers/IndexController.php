@@ -22,6 +22,7 @@ class IndexController extends Controller {
         $data = [
             'list' => ToolService::getToolList(),
             'type' => ToolService::getTypeList(),
+            'desc' => '工具箱列表',
             'meta_key' => ToolService::getToolMetaKey(),
             'meta_desc' => ToolService::META_DESC,
         ];

@@ -1,0 +1,62 @@
+<?php include  VIEW_PATH . "/common/header.html" ?>
+<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/timeline.css">
+
+<div class="row mt-4">
+    <div class=" pt-4 pb-4">
+
+        <h2 class="fs-6 text-center">最新动态</h2>
+        <div class="timeline timeline-item-arrow-md">
+            <?php if(!empty($list)) { $i = 0 ;?>
+            <?php foreach($list as $item) { ?>
+
+            <div class="timeline-item fs-8">
+                <?php if($i == 0) { ?>
+                    <div class="timeline-point timeline-point-danger">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="timeline-event timeline-event-success">
+                <?php } else if($item->type == 1) { ?>
+                    <div class="timeline-point timeline-point-blank">
+                        <i class="fa"></i>
+                    </div>
+                    <div class="timeline-event timeline-event-blank">
+                <?php  } else if($item->type == 2) { ?>
+                    <div class="timeline-point timeline-point-success">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="timeline-event timeline-event-success">
+                <?php  } else if($item->type == 3) { ?>
+                    <div class="timeline-point timeline-point-warning">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="timeline-event timeline-event-warning">
+                <?php  } else if($item->type == 4) { ?>
+                    <div class="timeline-point timeline-point-danger">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="timeline-event timeline-event-danger">
+                <?php  } ?>
+
+                    <div class="timeline-heading">
+                        <h4 class="fs-6"><?php echo $item->title; ?></h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p><?php echo $item->content; ?></p>
+                    </div>
+                    <div class="timeline-footer">
+                        <p class="text-right"><?php echo $item->time; ?></p>
+                    </div>
+                </div>
+            </div>
+            <?php $i++; } } ?>
+
+            <span class="timeline-label">
+            <button class="btn btn-success"><i class="fa fa-circle"></i></button>
+        </span>
+        </div>
+
+    </div>
+
+
+<?php include  VIEW_PATH . "/common/footer.html" ?>

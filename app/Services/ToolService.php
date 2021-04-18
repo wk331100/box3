@@ -1,8 +1,10 @@
 <?php
 namespace App\Services;
 
+use App\Libs\Constants;
 use App\Libs\RedisKey;
 use App\Models\ToolsModel;
+use System\Flash;
 use System\Redis;
 
 class ToolService{
@@ -65,6 +67,8 @@ class ToolService{
         $ip = $request->input('ip');
         $redis = new  Redis();
         $bindArray = [
+            'success' => Flash::get(Constants::SUCCESS),
+            'err' => Flash::get(Constants::ERR),
             'client_ip' => $ip,
             'online_users' => $redis->scount("online:*", 100000000),
             'visit' => $redis->get(RedisKey::VISIT),

@@ -10,6 +10,7 @@ class RedisKey
     const CLIENT_REQUEST_KEY        = "request:%s:%s";
     const ONLINE_USER               = "online:%s";
     const VISIT                     = "visit";
+    const CLIENT_SUBMIT_KEY         =  "submit:%s";
 
 
     /**
@@ -29,6 +30,15 @@ class RedisKey
      */
     public static function getClientKey($ip, $time) {
         return sprintf(self::CLIENT_REQUEST_KEY, $ip, $time);
+    }
+
+    /**
+     * 获取客户端提交key
+     * @param $token
+     * @return string
+     */
+    public static function getSubmitKey($ip) {
+        return sprintf(self::CLIENT_SUBMIT_KEY, $ip);
     }
 
     /**

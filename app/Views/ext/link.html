@@ -1,0 +1,25 @@
+<?php include VIEW_PATH . "/common/header.html" ?>
+<div class="row mt-4">
+    <div class="col-md">
+        <?php foreach($type as $item) { ?>
+        <div class="card mb-2">
+            <h5 class="card-header fs-6"><?php echo $item->type; ?></h5>
+            <div class="card-body">
+                <?php foreach($list as $item2) { ?>
+                <?php if($item2->type == $item->type) { ?>
+                <div class="card col-4 float-start me-1">
+                    <img src="<?php echo $item2->image; ?>" class="card-img-top" alt="<?php echo $item2->title; ?>" width="300" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title fs-7"><?php echo $item2->title; ?></h5>
+                        <p class="card-text fs-7"><?php echo $item2->desc; ?></p>
+                        <a href="<?php echo $item2->url; ?>" target="_blank" class="btn btn-outline-primary  btn-sm mt-1">访问 (Go)</a>
+                    </div>
+                </div>
+                <?php } } ?>
+            </div>
+        </div>
+    <?php  } ?>
+    </div>
+</div>
+
+<?php include VIEW_PATH . "/common/footer.html" ?>

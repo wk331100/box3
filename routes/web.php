@@ -13,6 +13,13 @@
 use System\Route;
 
 Route::get('/', 'IndexController@index');
+Route::get('/link', 'LinkController@index');
+Route::get('/about', 'LinkController@about');
+Route::get('/history', 'LinkController@history');
+Route::get('/feedback', 'LinkController@feedback');
+Route::post('/submitFeedBack', 'LinkController@feedback');
+
+
 Route::get('/tools', 'IndexController@tools');
 Route::get('/base64', 'IndexController@base64');
 Route::get('/urlEncode', 'IndexController@urlEncode');

@@ -14,6 +14,8 @@ class MessageCode {
 	const NO_PERMISSION                 = 403;  # 无权限访问
     const ILLEGAL_REQUEST               = 404;  # 非法请求
     const IMAGE_EXTENSION_ERROR         = 405;  # 图片格式错误
+    const SUBMIT_ERROR                  = 406;  # 请勿频繁提交
+    const SUBMIT_DAY_LIMIT              = 407;  # 今日提已达上限
 
     const INVALID_TOOL                  = 1000; # 非法工具
     const INVALID_TYPE                  = 1001; # 非法类型
@@ -21,6 +23,7 @@ class MessageCode {
     const INVALID_CHAR                  = 1003; # 使用字符错误
     const INVALID_LEN                   = 1004; # 选择长度错误
     const INVALID_LEN_OUT               = 1005; # 长度超过限制
+
 
 
 
@@ -38,6 +41,8 @@ class MessageCode {
 	    403                 => '无权限访问',
 	    404                 => '非法请求',
         405                 => '图片格式错误',
+        406                 => '请勿频繁提交',
+        407                 => '今日提已达上限',
 
         1000                => '非法工具',
         1001                => '非法类型',
