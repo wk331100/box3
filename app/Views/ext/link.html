@@ -8,7 +8,7 @@
             <div class="card-body">
                 <?php foreach($list as $item2) { ?>
                 <?php if($item2->type == $item->type) { ?>
-                <div class="card col-4 float-start me-1">
+                <div class="card col-4 float-start me-1 min-width">
                     <img src="<?php echo $item2->image; ?>" class="card-img-top" alt="<?php echo $item2->title; ?>" width="300" height="200">
                     <div class="card-body">
                         <h5 class="card-title fs-7"><?php echo $item2->title; ?></h5>
