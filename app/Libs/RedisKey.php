@@ -5,12 +5,12 @@ namespace App\Libs;
 class RedisKey
 {
     //用户登陆Token
-    const CONFIG_KEY                = "app:config:key";
-    const LOGIN_TOKEN_USER          = "app:login:token:%s";
-    const CLIENT_REQUEST_KEY        = "request:%s:%s";
-    const ONLINE_USER               = "online:%s";
-    const VISIT                     = "visit";
-    const CLIENT_SUBMIT_KEY         =  "submit:%s";
+    const CONFIG_KEY                = "box3:app:config:key";
+    const LOGIN_TOKEN_USER          = "box3:app:login:token:%s";
+    const CLIENT_REQUEST_KEY        = "box3:request:%s:%s";
+    const ONLINE_USER               = "box3:online:%s";
+    const VISIT                     = "box3:visit";
+    const CLIENT_SUBMIT_KEY         = "box3:submit:%s";
 
 
     /**
