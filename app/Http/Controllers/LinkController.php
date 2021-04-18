@@ -64,7 +64,7 @@ class LinkController extends Controller {
         $data = [
             'list' => ToolService::getToolList(),
             'type' => ToolService::getTypeList(),
-            'desc' => '工具箱列表',
+            'desc' => '问题反馈',
             'meta_key' => ToolService::getToolMetaKey(),
             'meta_desc' => ToolService::META_DESC,
         ];
